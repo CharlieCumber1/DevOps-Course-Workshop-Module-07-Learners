@@ -28,6 +28,7 @@ pipeline {
             }
             steps {
                 dir("DotnetTemplate.Web") {
+                    sh "npm install"
                     sh "npm run build"
                 }
             }
