@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build C#') {
             agent {
-                docker { image 'mcr.microsoft.com/dotnet/core/sdk:3.1' }
+                docker { image 'sdk:3.1' }
             },
             steps {
                 bat "dotnet build"
@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test C#') {
             agent {
-                docker { image 'mcr.microsoft.com/dotnet/core/sdk:3.1' }
+                docker { image 'sdk:3.1' }
             },
             steps {
                 bat "dotnet test"
