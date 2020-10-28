@@ -23,4 +23,5 @@ jobs:
     - name: Test typescript code
       run: npm t
 
-    - name: Run linter 
+    - name: Run linter
+      run: npm run lint
