@@ -7,7 +7,7 @@ pipeline {
                 docker { image 'sdk:3.1' }
             }
             steps {
-                bat "dotnet build"
+                dotnet build
             }
         }
         stage('Test C#') {
@@ -15,7 +15,7 @@ pipeline {
                 docker { image 'sdk:3.1' }
             }
             steps {
-                bat "dotnet test"
+                dotnet test
             }
         }
         stage('Build Typescript') {
@@ -23,8 +23,8 @@ pipeline {
                docker { image 'node:14-alpine' }
             }
             steps {
-                bat "cd DotnetTemplate.Web",
-                bat "npm run build"
+                cd DotnetTemplate.Web
+                npm run build
 
             }
         }
@@ -33,8 +33,8 @@ pipeline {
                docker { image 'node:14-alpine' }
             }
             steps {
-                bat "cd DotnetTemplate.Web",
-                bat "npm run lint"
+                cd DotnetTemplate.Web
+                npm run lint
 
             }
         }
@@ -43,8 +43,8 @@ pipeline {
                docker { image 'node:14-alpine' }
             }
             steps {
-                bat "cd DotnetTemplate.Web",
-                bat "npm t"
+                cd DotnetTemplate.Web
+                npm t
 
             }
         }
