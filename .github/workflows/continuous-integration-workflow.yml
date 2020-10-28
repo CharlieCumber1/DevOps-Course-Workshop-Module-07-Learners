@@ -24,10 +24,19 @@ jobs:
 
     - uses: actions/checkout@v2
     - name: Slack Notification
+      if: always()
       uses: rtCamp/action-slack-notify@master
-      env:
-        SLACK_CHANNEL: general
-        SLACK_COLOR: '#3278BD'
-        SLACK_ICON: https://github.com/rtCamp.png?size=48
-        SLACK_MESSAGE: 'Post Content :rocket:'
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      if: ${{ job.status }} == 'failure'
+        env:
+          SLACK_CHANNEL: generaL
+          SLACK_COLOR: '#A7C294'
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_MESSAGE: 'Post Content :rocket:'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      else: 
+        env:
+          SLACK_CHANNEL: generaL
+          SLACK_COLOR: '#D77D3E'
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_MESSAGE: 'Post Content :rocket:'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
