@@ -16,9 +16,11 @@ jobs:
 
     - name: Build typescript code
       run: | 
-        cd DotDotnetTemplate.Web
+        cd DotnetTemplate.Web
         npm install
         npm run build
 
     - name: Test typescript code
       run: npm t
+
+    - name: Run linter 
