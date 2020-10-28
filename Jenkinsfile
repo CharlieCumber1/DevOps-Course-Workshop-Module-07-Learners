@@ -27,9 +27,9 @@ pipeline {
                docker { image 'node:14-alpine' }
             }
             steps {
-                dir("DotnetTemplate.Web")
-                sh "npm run build"
-
+                dir("DotnetTemplate.Web") {
+                    sh "npm run build"
+                }
             }
         }
         stage('Lint Typescript') {
@@ -37,9 +37,9 @@ pipeline {
                docker { image 'node:14-alpine' }
             }
             steps {
-                dir("DotnetTemplate.Web")
-                sh "npm run lint"
-
+                dir("DotnetTemplate.Web") {
+                    sh "npm run lint"
+                }
             }
         }
         stage('Test Typescript') {
@@ -47,9 +47,9 @@ pipeline {
                docker { image 'node:14-alpine' }
             }
             steps {
-                dir("DotnetTemplate.Web")
-                sh "npm t"
-
+                dir("DotnetTemplate.Web") {
+                    sh "npm t"
+                }
             }
         }
     }
