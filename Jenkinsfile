@@ -5,7 +5,7 @@ pipeline {
         stage('Build C#') {
             agent {
                 docker { image 'sdk:3.1' }
-            },
+            }
             steps {
                 bat "dotnet build"
             }
@@ -13,7 +13,7 @@ pipeline {
         stage('Test C#') {
             agent {
                 docker { image 'sdk:3.1' }
-            },
+            }
             steps {
                 bat "dotnet test"
             }
@@ -21,27 +21,27 @@ pipeline {
         stage('Build Typescript') {
             agent {
                docker { image 'node:14-alpine' }
-            },
+            }
             steps {
                 bat "cd DotnetTemplate.Web",
                 bat "npm run build"
 
             }
-        },
+        }
         stage('Lint Typescript') {
             agent {
                docker { image 'node:14-alpine' }
-            },
+            }
             steps {
                 bat "cd DotnetTemplate.Web",
                 bat "npm run lint"
 
             }
-        },
+        }
         stage('Test Typescript') {
             agent {
                docker { image 'node:14-alpine' }
-            },
+            }
             steps {
                 bat "cd DotnetTemplate.Web",
                 bat "npm t"
