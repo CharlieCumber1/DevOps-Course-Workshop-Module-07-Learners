@@ -15,7 +15,9 @@ jobs:
       run: dotnet test
 
     - name: Build typescript code
-      run: cd DotDotnetTemplate.Web / npm install / npm run build
+      run: cd DotDotnetTemplate.Web
+      run: npm install
+      run: npm run build
 
     - name: Test typescript code
       run: npm t
