@@ -21,3 +21,6 @@ jobs:
         npm run build
         npm run lint
         npm t
+
+    - name: Notify
+      run: curl -X POST --data-urlencode "payload={\"channel\": \"#general\", \"username\": \"webhookbot\", \"text\": \"This is posted to #general and comes from a bot named webhookbot.\", \"icon_emoji\": \":ghost:\"}" https://hooks.slack.com/services/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
