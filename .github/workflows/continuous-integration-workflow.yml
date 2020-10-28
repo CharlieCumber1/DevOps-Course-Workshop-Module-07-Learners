@@ -14,14 +14,10 @@ jobs:
     - name: Test C# code
       run: dotnet test
 
-    - name: Build typescript code
+    - name: Build, Lint and Test typescript code
       run: | 
         cd DotnetTemplate.Web
         npm install
         npm run build
-
-    - name: Test typescript code
-      run: npm t
-
-    - name: Run linter
-      run: npm run lint
+        npm run lint
+        npm t
